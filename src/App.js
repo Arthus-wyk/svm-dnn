@@ -1,24 +1,38 @@
 import logo from './logo.svg';
 import './App.css';
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Layout, Menu, theme } from "antd";
+import { Content, Footer, Header } from "antd/es/layout/layout";
+import Predict from "./predict/index";
+import NavigationMenu from './components/NavigationMenu'
+import Students from './students';
+import 'antd/dist/reset.css'; // 对于 Ant Design v5
+import QueryProvider from './components/providers'
 function App() {
+  const {
+    token: { colorBgContainer, borderRadiusLG },
+  } = theme.useToken();
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <QueryProvider>
+
+    <Router>
+      <Layout style={{height:'100vh',width:'100%',display:'flex'}}>
+        <Header style={{width:"100%" }}>
+          <NavigationMenu />
+        </Header>
+        <Content style={{height:'100%',flex:1, }}>
+          <Routes>
+            <Route path="/" element={<Students />} />
+            <Route path="/predict" element={<Predict />} />
+          </Routes>
+        </Content>
+       
+      </Layout>
+    </Router>
+    </QueryProvider>
   );
 }
 
