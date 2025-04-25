@@ -278,8 +278,9 @@ export default function PredictNext() {
           gap: "30px",
         }}
       >
-        <AccuracyDisplay title={"svm准确率"} accuracy={"0.4212"} />
-        <AccuracyDisplay title={"dnn准确率"} accuracy={"0.6553"} />
+        <AccuracyDisplay title={"SVM准确率"} accuracy={"0.5816"} />
+        <AccuracyDisplay title={"DNN准确率"} accuracy={"0.3656"} />
+        <AccuracyDisplay title={"DNN+SVM准确率"} accuracy={"0.4250"} />
       </div>
       <Divider />
       <Form
