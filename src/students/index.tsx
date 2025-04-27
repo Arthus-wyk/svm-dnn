@@ -246,7 +246,7 @@ export default function () {
       },
     },
     {
-      title: "DNN预测期末成绩",
+      title: "DNN 预测期末成绩",
       dataIndex: "pred_svm_grade",
       width:200,
       render: (t: any, r: any) => {
@@ -254,9 +254,17 @@ export default function () {
       },
     },
     {
-      title: "SVM预测期末成绩",
+      title: "SVM\n预测期末成绩",
       dataIndex: "pred_dnn_grade",
       width:200,
+      render: (t: any, r: any) => {
+        return (<div style={{color:t>=60? 'black':'red'}}>{t.toFixed(2)}</div>)
+      },
+    },
+    {
+      title: "DNN+SVM\n预测期末成绩",
+      dataIndex: "pred_combined_grade",
+      width:145,
       render: (t: any, r: any) => {
         return (<div style={{color:t>=60? 'black':'red'}}>{t.toFixed(2)}</div>)
       },
@@ -308,6 +316,7 @@ export default function () {
         columns={columns} // 列配置
         dataSource={data} // 表格数据
         bordered
+        scroll={{x:800}}
         rowKey={(record: any) => record.id} // 每行的唯一标识
         pagination={{
           current: pagination.current,

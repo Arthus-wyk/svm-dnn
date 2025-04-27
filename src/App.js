@@ -19,11 +19,11 @@ function App() {
     <QueryProvider>
 
     <Router>
-      <Layout style={{height:'100vh',width:'100%',display:'flex'}}>
+      <Layout style={{background: 'linear-gradient(120deg, #f5f7fa 0%, #c3cfe2 100%)'}}>
         <Header style={{width:"100%" }}>
           <NavigationMenu />
         </Header>
-        <Content style={{height:'100%',flex:1, }}>
+        <Content style={{height:'100%' }}>
           <Routes>
             <Route path="/" element={<Students />} />
             <Route path="/predict" element={<Predict />} />
