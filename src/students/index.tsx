@@ -136,6 +136,13 @@ export default function () {
     {
       title: "姓名",
       dataIndex: "姓名",
+      render:(t:string)=>{
+        let hide=''
+        for(let i=0;i<t.length-1;i++){
+          hide+='*';
+        }
+        return t[0]+hide
+      }
     },
     {
       title: "测试1",
